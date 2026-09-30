@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+  Host this page at the HTTPS URL you register as the "Valid OAuth Redirect URI" for your
+  Instagram app (Meta Developer Dashboard > your app > Instagram > API setup with Instagram
+  business login > Business login settings). Instagram requires an HTTPS redirect_uri — it does
+  not accept a custom URL scheme directly — so this page's only job is to immediately bounce the
+  browser into the app via the custom scheme ASWebAuthenticationSession is listening for.
+
+  Free hosting options: GitHub Pages (push this folder to a repo, enable Pages), Cloudflare
+  Pages, Netlify — any static host works, as long as the URL is HTTPS and matches exactly what
+  you put in InstagramSignInProvider.swift's `redirectURI` and in the dashboard.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Applytics</title>
+</head>
+<body>
+  <script>
+    // Forward the exact query string (code, state, or error) Instagram appended to this page's
+    // URL into the app's custom scheme, matching `callbackURLScheme` in InstagramSignInProvider.swift.
+    window.location.replace("applytics-ig://oauth-callback" + window.location.search);
+  </script>
+  <p>Presmerúvam späť do aplikácie Applytics…</p>
+</body>
+</html>
